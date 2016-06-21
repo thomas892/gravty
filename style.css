@@ -1,0 +1,16 @@
+body {
+	margin: 0px;
+}
+#leftSideBar {
+	float: left;
+	background-color: #646369;
+	width: 150px;
+	height: 600px;
+}
+#main {
+	position: relative;
+	background-color: #3A326B;
+	left: 150px;
+	width: 750px;
+	height: 600px;
+}

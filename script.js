@@ -9,9 +9,7 @@ require.config({
 	]
 });
 
-function circlePos() {
-	
-}
+
 
 
 
@@ -21,7 +19,7 @@ requirejs(['physicsjs', 'jquery'], function(Physics) {
 		var viewportWidth = document.getElementById('viewport').scrollWidth;
 		var viewportHeight = document.getElementById('viewport').scrollHeight;
 		var bounds = Physics.aabb(0, 0, viewportWidth, viewportHeight);
-		document.getElementById('viewport').addEventListener('click', function(){alert('HelloW');});
+		document.getElementById('viewport').addEventListener('click', addCircle);
 		
 		var renderer = Physics.renderer('canvas', {
 			el: 'viewport', 
@@ -41,6 +39,20 @@ requirejs(['physicsjs', 'jquery'], function(Physics) {
 		Physics.behavior('edge-collision-detection', {aabb: bounds, restitution: 0.8}), 
 		Physics.behavior('body-impulse-response')
 		]);
+		
+		/*
+		function addCircle(e) {
+			var xPos = e.clientX;
+			var yPos = e.clientY;
+			var circle = Physics.body('circle', {
+			x: xPos,
+			y: yPos,
+			radius: 3,
+			vy: -0.01
+			});
+			world.add(circle);
+		}
+		*/
 		
 
 		world.add( Physics.behavior('body-collision-detection') );

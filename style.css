@@ -16,7 +16,7 @@ body {
 	height: 100%;
 }
 
-#gameWorld {
+#viewport {
 	position: absolute;
 	width: 100%;
 	height: 100%;

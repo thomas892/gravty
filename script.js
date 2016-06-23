@@ -9,6 +9,8 @@ require.config({
 	]
 });
 
+var paused = false;
+
 
 
 
@@ -21,6 +23,7 @@ requirejs(['physicsjs', 'jquery'], function(Physics) {
 		var bounds = Physics.aabb(0, 0, viewportWidth, viewportHeight);
 		
 		document.getElementById('viewport').addEventListener('click', addCircle);
+		document.getElementById('pauseButton').addEventListener('click', pauseGame);
 		
 		var renderer = Physics.renderer('canvas', {
 			el: 'viewport', 
@@ -29,6 +32,7 @@ requirejs(['physicsjs', 'jquery'], function(Physics) {
 		});
 		world.add(renderer);
 		
+		
 		/*var circle = Physics.body('circle', {
 			x: 250,
 			y: 3,
@@ -36,7 +40,7 @@ requirejs(['physicsjs', 'jquery'], function(Physics) {
 			vy: -0.01
 		});*/
 		world.add([ 
-		Physics.behavior('constant-acceleration'),
+		Physics.behavior('newtonian'),
 		Physics.behavior('edge-collision-detection', {aabb: bounds, restitution: 1}), 
 		Physics.behavior('body-impulse-response'),
 		Physics.behavior('body-collision-detection'),
@@ -51,9 +55,24 @@ requirejs(['physicsjs', 'jquery'], function(Physics) {
 			x: xPos,
 			y: yPos,
 			radius: 10,
-			vy: -0.01
+			vx: 0.01,
+			styles: {
+				fillStyle: '#FFF880',
+				angleIndicator: '#FFF880'
+			}
 			});
 			world.add(circle);
+		}
+		
+		function pauseGame() {
+			if(!paused) {
+				world.pause();
+				paused = true;
+			}
+			else {
+				world.unpause();
+				paused = false;
+			}
 		}
 		
 		

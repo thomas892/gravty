@@ -10,6 +10,9 @@ require.config({
 });
 
 var paused = false;
+var bodyRadius = 1;
+
+
 
 
 
@@ -22,8 +25,14 @@ requirejs(['physicsjs', 'jquery'], function(Physics) {
 		var viewportHeight = document.getElementById('viewport').scrollHeight;
 		var bounds = Physics.aabb(0, 0, viewportWidth, viewportHeight);
 		
+		document.getElementById('small').addEventListener('click', function() {bodyRadius = 10;});
+		document.getElementById('medium').addEventListener('click', function() {bodyRadius = 15;});
+		document.getElementById('large').addEventListener('click', function() {bodyRadius = 20;});
+		document.getElementById('huge').addEventListener('click', function() {bodyRadius = 30;});
 		document.getElementById('viewport').addEventListener('click', addCircle);
 		document.getElementById('pauseButton').addEventListener('click', pauseGame);
+		
+		
 		
 		var renderer = Physics.renderer('canvas', {
 			el: 'viewport', 
@@ -54,7 +63,7 @@ requirejs(['physicsjs', 'jquery'], function(Physics) {
 			var circle = Physics.body('circle', {
 			x: xPos,
 			y: yPos,
-			radius: 10,
+			radius: bodyRadius,
 			vx: 0.01,
 			styles: {
 				fillStyle: '#FFF880',

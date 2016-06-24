@@ -10,7 +10,7 @@ require.config({
 });
 
 var paused = false;
-var bodyRadius = 1;
+var bodyRadius = 10;
 
 
 
@@ -25,12 +25,13 @@ requirejs(['physicsjs', 'jquery'], function(Physics) {
 		var viewportHeight = document.getElementById('viewport').scrollHeight;
 		var bounds = Physics.aabb(0, 0, viewportWidth, viewportHeight);
 		
-		document.getElementById('small').addEventListener('click', function() {bodyRadius = 10;});
-		document.getElementById('medium').addEventListener('click', function() {bodyRadius = 15;});
-		document.getElementById('large').addEventListener('click', function() {bodyRadius = 20;});
-		document.getElementById('huge').addEventListener('click', function() {bodyRadius = 30;});
+		document.getElementById('smallButton').addEventListener('click', function() {bodyRadius = 10;});
+		document.getElementById('mediumButton').addEventListener('click', function() {bodyRadius = 15;});
+		document.getElementById('largeButton').addEventListener('click', function() {bodyRadius = 20;});
+		document.getElementById('hugeButton').addEventListener('click', function() {bodyRadius = 30;});
 		document.getElementById('viewport').addEventListener('click', addCircle);
 		document.getElementById('pauseButton').addEventListener('click', pauseGame);
+		document.getElementById('resetButton').addEventListener('click', resetWorld);
 		
 		
 		
@@ -64,6 +65,7 @@ requirejs(['physicsjs', 'jquery'], function(Physics) {
 			x: xPos,
 			y: yPos,
 			radius: bodyRadius,
+			mass: bodyRadius/10,
 			vx: 0.01,
 			styles: {
 				fillStyle: '#FFF880',
@@ -71,6 +73,12 @@ requirejs(['physicsjs', 'jquery'], function(Physics) {
 			}
 			});
 			world.add(circle);
+		}
+		
+		function resetWorld() {
+			var circles = [];
+			circles = world.getBodies();
+			world.remove(circles);
 		}
 		
 		function pauseGame() {

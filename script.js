@@ -50,12 +50,31 @@ requirejs(['physicsjs', 'jquery'], function(Physics) {
 			vy: -0.01
 		});*/
 		world.add([ 
-		Physics.behavior('newtonian'),
-		Physics.behavior('edge-collision-detection', {aabb: bounds, restitution: 1}), 
-		Physics.behavior('body-impulse-response'),
-		Physics.behavior('body-collision-detection'),
-		Physics.behavior('sweep-prune')
+			Physics.behavior('newtonian'),
+			Physics.behavior('edge-collision-detection', {aabb: bounds, restitution: 1}), 
+			Physics.behavior('body-impulse-response'),
+			Physics.behavior('body-collision-detection'),
+			Physics.behavior('sweep-prune')
 		]);
+		
+		var attractor = Physics.behavior('attractor', {
+        order: 0,
+        strength: 1
+		});
+		world.on({
+			'interact:poke': function( pos ){
+				world.wakeUpAll();
+				attractor.position( pos );
+				world.add( attractor );
+			}
+			,'interact:move': function( pos ){
+				attractor.position( pos );
+			}
+			,'interact:release': function(){
+				world.wakeUpAll();
+				world.remove( attractor );
+			}
+		});
 		
 		
 		function addCircle(e) {
@@ -65,7 +84,7 @@ requirejs(['physicsjs', 'jquery'], function(Physics) {
 			x: xPos,
 			y: yPos,
 			radius: bodyRadius,
-			mass: bodyRadius/10,
+			mass: ((4/3)*Math.PI*Math.pow(bodyRadius, 3))/4000,
 			vx: 0.01,
 			styles: {
 				fillStyle: '#FFF880',

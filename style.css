@@ -1,21 +1,51 @@
 body {
 	margin: 0px;
-	background-color: #000000;
+	background-color: #1d1919;
 }
+
+p{
+	font: 1.8em monospace;
+	font-weight: bold;
+	text-align:center;
+	color:#00bb6e;
+	margin:5%;
+}
+
 button {
 	
 	display: block;
-	border: 1px solid black;
-	border-bottom: none;
 	position: relative;
-	background-color: #8D8D8D;
+	border: 1px solid #c2c2c2;
+	border-style: solid none none none;
+	background-color: #312f2f;
 	margin: auto;
 	font-family: monospace;
-	font-size: 20px;
+	font-size: 1.5em;
+	color: #c2c2c2;
 	width: 80%;
-	height: 50px;
-	line-height: 50px;
+	height: 5%;
+	line-height: 100%;
 	text-align: center;	
+}
+
+#hugeButton {
+	border-style: solid none solid none;
+}
+/*#gravityWellButton{
+	top: 10px;
+	background-color: #0C8B0C;
+}
+#gravityWellButton:hover {
+	background-color: #0B6C0B;
+}
+#gravityWellButton:active {
+	background-color: #0D5D0D;
+}*/
+
+#gravityWellButton{
+	top: 10%;
+	height:8%;
+	border-style: solid none solid none;
 }
 
 button:hover {
@@ -29,31 +59,34 @@ button:active {
 button:focus {
 	outline: 0;
 }
-
-/*#massButton { 
-	top: 5%;
-}*/
-
 #resetButton {
-	top: 40%;
+	border-style: solid none solid none;
+	position:absolute;
+	left: 10%;
+	bottom: 5%;
+	
 }
 
 #pauseButton {
-	top: 45%;
-	
+	border-style: solid none none none;
+	position:absolute;
+	left: 10%;
+	bottom: 10%;
 }
 #leftSideBar {
 	position: absolute;
 	left: -2px;
 	float: left;
-	background: #2E2E2E;
-	border: 1px solid #757575;				
+	background: #312f2f;
+	border: 1px solid #c2c2c2;	
+	border-style: none solid none none;
 	width: 20%;
 	height: 100%;
+	font-color: #FFFFFF;
 }
 #main {
 	position: absolute;
-	background-color: #000000;
+	background-color: #1d1919;
 	left: 20%;
 	width: 80%;
 	height: 100%;

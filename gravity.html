@@ -3,15 +3,16 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="style.css" />
 		<script data-main="script" src="requirejs.js"></script>
-		<title></title>
+		<title>Gravty</title>
 	</head>
 	<body>
 		<div id="leftSideBar">
-			<p></p>
-			<button id="smallButton">SMALL</button>
-			<button id="mediumButton">MEDIUM</button>
-			<button id="largeButton">LARGE</button>
-			<button id="hugeButton">HUGE</button>
+			<p>BODY SIZES</p>
+			<button id="smallButton" onclick="actionSelector('small');">SMALL</button>
+			<button id="mediumButton" onclick="actionSelector('medium');">MEDIUM</button>
+			<button id="largeButton" onclick="actionSelector('large');">LARGE</button>
+			<button id="hugeButton" onclick="actionSelector('huge');">HUGE</button>
+			<button id="gravityWellButton" onclick="actionSelector('gravityWell');">GRAVITY<br />WELL</button>
 			<button id="resetButton">RESET</button>
 			<button id="pauseButton">PAUSE</button>
 		</div>

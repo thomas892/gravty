@@ -1,12 +1,15 @@
-process.env.NODE_ENV = 'development';
-const debug = process.env.NODE_ENV !== "production";
+
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 
+const extractSass = new ExtractTextPlugin({
+    filename: "./style/style.css"
+})
 
 module.exports = {
     context: path.join(__dirname, "src"),
-    devtool: debug ? "sourcemap" : null,
-    entry: "./js/app.js",
+    devtool: "sourcemap",
+    entry: ["./js/app.js"],
     output: {
         path: path.join(__dirname, "src"),
         filename: "./bundle.js"
@@ -23,8 +26,23 @@ module.exports = {
                         presets: ['es2015']
                     }
                 }
+            },
+            {
+                test: /\.scss$/,
+                use: extractSass.extract({
+                    use:[
+                        {loader: "css-loader"},
+                        {loader: "sass-loader"}
+                    ],
+                    fallback: "style-loader"
+
+                })
             }
         ]
-    }
+    },
+    plugins: [
+        extractSass
+    ]
+
 
 }

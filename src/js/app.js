@@ -5,6 +5,7 @@ import Renderer from "./renderer";
 import Interactions from "./interactions";
 import Behaviors from "./behaviors";
 import Collisions from "./collisions";
+import Style from "../style/style.scss";
 
 
 Physics({sleepDisabled: true}, function(world) {

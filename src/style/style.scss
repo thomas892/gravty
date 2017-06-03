@@ -1,0 +1,73 @@
+$menu-background-color: #243A40;
+
+.menu-font {
+    font-family: sans-serif;
+    color: #A2E8FF;
+    font-size: 20px;
+}
+
+html, body {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+@mixin button-style($border, $margin) {
+    border-left: 0;
+    border-right: 0;
+    border-top: $border;
+    border-bottom: $border;
+    border-color: #74BACC;
+    border-style: solid;
+
+    margin-top: $margin;
+    margin-bottom: $margin;
+}
+
+nav {
+    display: block;
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    float: left;
+    background-color: $menu-background-color;
+
+    ul {
+        width: 80%;
+        margin: auto;
+        list-style: none;
+        text-align: center;
+        padding: 0;
+
+        p{
+            @extend .menu-font;
+            font-size: 30px;
+        }
+
+        li {
+            @include button-style(1px, 30px);
+            @extend .menu-font;
+            &#gravityWellButton {
+                margin-top: 300px;
+            }
+            &:hover {
+                background-color: $menu-background-color * 1.5;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+#viewport {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#main {
+    position: absolute;
+    background-color: #1D2E33;
+    left: 20%;
+    width: 80%;
+    height: 100%;
+}

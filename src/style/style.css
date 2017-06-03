@@ -1,99 +1,53 @@
-body {
-    margin: 0px;
-    background-color: #1d1919;
-}
+.menu-font, nav ul p, nav ul li {
+  font-family: sans-serif;
+  color: #A2E8FF;
+  font-size: 20px; }
 
-p{
-    font: 1.8em monospace;
-    font-weight: bold;
-    text-align:center;
-    color:#00bb6e;
-    margin:5%;
-}
+html, body {
+  margin: 0;
+  border: 0;
+  padding: 0; }
 
-button {
-
-    display: block;
-    position: relative;
-    border: 1px solid #c2c2c2;
-    border-style: solid none none none;
-    background-color: #312f2f;
+nav {
+  display: block;
+  position: absolute;
+  width: 20%;
+  height: 100%;
+  float: left;
+  background-color: #243A40; }
+  nav ul {
+    width: 80%;
     margin: auto;
-    font-family: monospace;
-    font-size: 1.5em;
-    color: #c2c2c2;
-    width: 80%;
-    height: 5%;
-    line-height: 100%;
+    list-style: none;
     text-align: center;
-}
-
-#hugeButton {
-    border-style: solid none solid none;
-}
-/*#gravityWellButton{
-    top: 10px;
-    background-color: #0C8B0C;
-}
-#gravityWellButton:hover {
-    background-color: #0B6C0B;
-}
-#gravityWellButton:active {
-    background-color: #0D5D0D;
-}*/
-
-#gravityWellButton{
-    top: 10%;
-    height:8%;
-    border-style: solid none solid none;
-}
-
-button:hover {
-    background-color: #7D7E7E;
-}
-
-button:active {
-    background-color: #575757;
-}
-
-button:focus {
-    outline: 0;
-}
-#resetButton {
-    border-style: solid none solid none;
-    position:absolute;
-    left: 10%;
-    bottom: 5%;
-
-}
-
-#pauseButton {
-    border-style: solid none none none;
-    position:absolute;
-    left: 10%;
-    bottom: 10%;
-}
-#menu {
-    position: absolute;
-    left: -2px;
-    float: left;
-    background: #312f2f;
-    border: 1px solid #c2c2c2;
-    border-style: none solid none none;
-    width: 20%;
-    height: 100%;
-    font-color: #FFFFFF;
-}
-#main {
-    position: absolute;
-    background-color: #1d1919;
-    left: 20%;
-    width: 80%;
-    height: 100%;
-}
+    padding: 0; }
+    nav ul p {
+      font-size: 30px; }
+    nav ul li {
+      border-left: 0;
+      border-right: 0;
+      border-top: 1px;
+      border-bottom: 1px;
+      border-color: #74BACC;
+      border-style: solid;
+      margin-top: 30px;
+      margin-bottom: 30px; }
+      nav ul li#gravityWellButton {
+        margin-top: 300px; }
+      nav ul li:hover {
+        background-color: #365760;
+        cursor: pointer; }
 
 #viewport {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+
+#main {
+  position: absolute;
+  background-color: #1D2E33;
+  left: 20%;
+  width: 80%;
+  height: 100%; }
+
+/*# sourceMappingURL=style.css.map*/

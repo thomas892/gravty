@@ -9,17 +9,15 @@ export default function Interactions(world) {
         strength: 0.001
     });
 
-    return {
-        'interact:poke': function( pos ){
-            if(!world.gravityWell) {
-                console.log(world.gravityWell);
-                var circle = addCircle(pos, world.bodyRadius);
-                console.log("mass:"+circle.mass );
-                world.add(circle);
+    let interaction =
+    world.add(interaction);
 
+    world.on({
+        'interact:poke': function( pos ){
+            if(!world.settings.gravityWell) {
+                    var circle = addCircle(pos, world.settings.radius);
+                    world.add(circle);
             } else {
-                world.wakeUpAll();
-                console.log(world.gravityWell);
                 attraction.position( pos );
                 world.add(attraction);
             }
@@ -28,8 +26,7 @@ export default function Interactions(world) {
             attraction.position( pos );
         },
         'interact:release': function(){
-            world.wakeUpAll();
             world.remove( attraction );
         }
-    }
+    })
 }

@@ -5,13 +5,15 @@ import Renderer from "./renderer";
 import Interactions from "./interactions";
 import Behaviors from "./behaviors";
 import Collisions from "./collisions";
+import Settings from "./settings";
 import Style from "../style/style.scss";
+
 
 
 Physics({sleepDisabled: true}, function(world) {
 
-    this.gravityWell = false;
-    this.bodyRadius = 2;
+    world.settings = new Settings();
+    console.log(world.settings);
 
 	//init rendering
 	let view = new Renderer();
@@ -22,22 +24,16 @@ Physics({sleepDisabled: true}, function(world) {
     window.addEventListener('resize', view.resize(world));
 
     //initializing behaviors
-	let behaviors = Behaviors(renderer);
-    world.add(behaviors);
+	Behaviors(world, renderer);
 
 	//menu
-
 	bindMenuEvents(world);
 
-
     //interaction with the world
-    world.on(Interactions(world));
+    Interactions(world);
 
     //collision detection for merging bodies
-
 	Collisions(world);
-
-
 
     world.render();
     Physics.util.ticker.on(function (time, dt) {

@@ -1,0 +1,42 @@
+@import "queries";
+@import "cross-browser";
+@import "mixins";
+
+$menu-background-color: #111111;
+
+.button-style {
+    $btn-background: #333333;
+    @include menu-font(20px);
+    background-color: $btn-background;
+    margin-bottom: 5px;
+    padding: 10px;
+    &:hover {
+        background-color: $btn-background * 1.10;
+    }
+    &:active {
+        background-color: $btn-background * 1.30;
+    }
+}
+
+nav {
+    position: absolute;
+    width: 200px;
+    height: 400px;
+    background-color: $menu-background-color;
+    opacity: 0.5;
+    @include border-radius(8px);
+    @include menu-font(20px);
+    z-index: 10;
+    margin: 5px;
+    ul {
+        list-style: none;
+        margin: 5px;
+        &:nth-child(2) {
+
+        }
+        li {
+            @extend .button-style;
+        }
+
+    }
+}

@@ -9,11 +9,11 @@ export default function bindMenuEvents(world) {
     let pause = document.getElementById('pauseButton');
 
 
-    gravityWell.addEventListener('click', () => { world.gravityWell = true; });
-    small.addEventListener('click', () => { world.bodyRadius = 2; world.gravityWell = false; });
-    medium.addEventListener('click', () => { world.bodyRadius = 4; world.gravityWell = false;  });
-    large.addEventListener('click', () => { world.bodyRadius = 6; world.gravityWell = false;  });
-    huge.addEventListener('click', () => { world.bodyRadius = 8; world.gravityWell = false;  });
+    gravityWell.addEventListener('click', () => { world.settings.gravityWellOn() });
+    small.addEventListener('click', () => { world.settings.changeRadius(2); });
+    medium.addEventListener('click', () => { world.settings.changeRadius(4);  });
+    large.addEventListener('click', () => { world.settings.changeRadius(6);  });
+    huge.addEventListener('click', () => { world.settings.changeRadius(8); });
     reset.addEventListener('click', () => { world.remove(world.getBodies()) });
     pause.addEventListener('click', () => { world.isPaused() ? world.unpause() : world.pause() });
 

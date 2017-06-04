@@ -3,8 +3,8 @@ import Physics from "physicsjs";
 export default class Renderer {
 
     constructor() {
-        this.viewportWidth = document.getElementById('viewport').scrollWidth;
-        this.viewportHeight = document.getElementById('viewport').scrollHeight;
+        this.viewportWidth = document.getElementById('viewport').getBoundingClientRect().width;
+        this.viewportHeight = document.getElementById('viewport').getBoundingClientRect().height;
 
         this.renderer = Physics.renderer('canvas', {
             el: 'viewport',
@@ -33,7 +33,7 @@ export default class Renderer {
     }
 
     getViewport() {
-        this.viewportWidth = document.getElementById('viewport').clientWidth;
-        this.viewportHeight = document.getElementById('viewport').clientHeight;
+        this.viewportWidth = document.getElementById('viewport').getBoundingClientRect().width;
+        this.viewportHeight = document.getElementById('viewport').getBoundingClientRect().height;
     }
 }

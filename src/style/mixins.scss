@@ -5,20 +5,7 @@
     font-size: $size;
 }
 
-@mixin button-style($border: 10px, $btn-background: #333333) {
-    @include menu-font(20px);
-    background-color: $btn-background;
-    margin-bottom: 5px;
-    padding: 10px;
-    &:hover {
-        background-color: $btn-background * 1.10;
-    }
-    &:active {
-        background-color: $btn-background * 1.30;
-    }
 
-
-}
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;

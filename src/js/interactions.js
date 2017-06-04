@@ -6,7 +6,7 @@ export default function Interactions(world) {
 
     let attraction = Physics.behavior('attractor', {
         order: 0,
-        strength: 0.001
+        strength: 0.0001
     });
 
     let interaction =

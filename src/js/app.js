@@ -20,9 +20,6 @@ Physics({sleepDisabled: true}, function(world) {
     let renderer = view.getRenderer();
     world.add(renderer);
 
-	//handling resize
-    window.addEventListener('resize', view.resize(world));
-
     //initializing behaviors
 	Behaviors(world, renderer);
 

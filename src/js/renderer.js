@@ -13,21 +13,6 @@ export default class Renderer {
         });
     }
 
-    resize(world) {
-        this.getViewport();
-        world.removeBehavior('edge-collision-detection');
-        world.add(
-            Physics.behavior(
-                'edge-collision-detection',
-                {
-                    aabb: Physics.aabb(0, 0, this.viewportWidth, this.viewportHeight),
-                    restitution: 1,
-                    channel:'collisions-edge:detected'
-                }
-            )
-        );
-    }
-
     getRenderer() {
         return this.renderer;
     }

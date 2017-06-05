@@ -9,7 +9,7 @@ $menu-background-color: #111111;
 nav {
     position: absolute;
     width: 200px;
-    height: 400px;
+    height: auto;
     background-color: $menu-background-color;
     opacity: 0.5;
     @include border-radius(8px);
@@ -71,6 +71,8 @@ nav {
         justify-content: flex-start;
         align-items: center;
         li {
+            @extend .noselect;
+            cursor: default;
             display: inline-block;
             margin-right: 5px;
             background-color: $menu-background-color;

@@ -2,15 +2,9 @@
 
 @mixin menu-font($size: 20px) {
     font-family: sans-serif;
-    font-weight: lighter;
     color: #FFFFFF;
     font-size: $size;
 }
-
-
-
-
-
 
 @mixin button-style($font-size: 20px) {
     display: block;
@@ -19,6 +13,7 @@
     background-color: $btn-background;
     margin-bottom: 5px;
     padding: 10px;
+    cursor: default;
     &:hover {
         background-color: $btn-background * 1.10;
     }

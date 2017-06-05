@@ -5,29 +5,6 @@
 
 $menu-background-color: #111111;
 
-@mixin button-style($font-size: 20px) {
-    $btn-background: #333333;
-    @include menu-font($font-size);
-
-    background-color: $btn-background;
-    margin-bottom: 5px;
-    padding: 10px;
-
-    &:hover {
-        background-color: $btn-background * 1.10;
-    }
-    &:active {
-        background-color: $btn-background * 1.30;
-    }
-}
-
-@mixin flex() {
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
-}
 
 nav {
     position: absolute;
@@ -40,7 +17,7 @@ nav {
     z-index: 10;
     margin: 5px;
     @include tablet {
-        width: 100%;
+        width: 98%;
         height: 60px;
         @include border-radius(4px);
         @include menu-font(15px);
@@ -53,17 +30,52 @@ nav {
             @include flex();
             flex-direction: row;
             justify-content: space-around;
-            p {
-
-            }
+            align-items: center;
         }
         li {
             @include button-style();
+            @include border-radius(4px);
             @extend .noselect;
             @include tablet {
-                @include button-style(12px)
+                @include button-style(12px);
+                margin-bottom: 0;
+                &.hidden {
+                    display: none;
+                }
+                padding-right: 30px;
+                padding-left: 30px;
+            }
+            @include phone {
+                @include button-style(12px);
+                margin-bottom: 0;
+                &.hidden {
+                    display: none;
+                }
             }
         }
 
     }
+}
+
+
+.phone-bottom {
+    display: none;
+    @include tablet {
+        display: block;
+        bottom: 10px;
+        background-color: transparent;
+    }
+    ul {
+        @include flex();
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        li {
+            display: inline-block;
+            margin-right: 5px;
+            background-color: $menu-background-color;
+
+        }
+    }
+
 }

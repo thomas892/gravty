@@ -1,3 +1,5 @@
+@import "cross-browser";
+
 @mixin menu-font($size: 20px) {
     font-family: sans-serif;
     font-weight: lighter;
@@ -7,8 +9,20 @@
 
 
 
-@mixin border-radius($radius) {
-  -webkit-border-radius: $radius;
-  border-radius: $radius;
-  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+
+
+
+@mixin button-style($font-size: 20px) {
+    display: block;
+    $btn-background: #333333;
+    @include menu-font($font-size);
+    background-color: $btn-background;
+    margin-bottom: 5px;
+    padding: 10px;
+    &:hover {
+        background-color: $btn-background * 1.10;
+    }
+    &:active {
+        background-color: $btn-background * 1.30;
+    }
 }

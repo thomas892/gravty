@@ -1,21 +1,17 @@
 import Physics from "physicsjs";
-import Settings from "./settings";
-import { addCircle } from "./addBody";
+import { addCircle } from "./add_body";
 
-export default function Interactions(world) {
+export default function addInteractions(world) {
 
     let attraction = Physics.behavior('attractor', {
         order: 0,
         strength: 0.0001
     });
 
-    let interaction =
-    world.add(interaction);
-
     world.on({
         'interact:poke': function( pos ){
             if(!world.settings.gravityWell) {
-                    var circle = addCircle(pos, world.settings.radius);
+                    const circle = addCircle(pos, world.settings.radius);
                     world.add(circle);
             } else {
                 attraction.position( pos );

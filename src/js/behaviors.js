@@ -1,7 +1,6 @@
 import Physics from "physicsjs";
 
-
-export default function Behaviors(world, renderer) {
+export default function addBehaviors(world, renderer) {
     world.add([
         Physics.behavior('newtonian'),
         Physics.behavior('body-collision-detection', {

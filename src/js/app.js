@@ -1,41 +1,33 @@
 import Physics from "physicsjs";
-import { calcImpulse, calcNewBody, addCircle } from "./addBody";
 import bindMenuEvents from "./menu";
 import Renderer from "./renderer";
-import Interactions from "./interactions";
-import Behaviors from "./behaviors";
-import Collisions from "./collisions";
+import addInteractions from "./interactions";
+import addBehaviors from "./behaviors";
 import Settings from "./settings";
-import Style from "../style/style.scss";
-
-
+import addCollisions from "./collisions";
 
 Physics({sleepDisabled: true}, function(world) {
 
     world.settings = new Settings();
-    console.log(world.settings);
 
-	//init rendering
 	let view = new Renderer();
     let renderer = view.getRenderer();
     world.add(renderer);
 
-    //initializing behaviors
-	Behaviors(world, renderer);
+    addBehaviors(world, renderer);
 
-	//menu
 	bindMenuEvents(world);
 
-    //interaction with the world
-    Interactions(world);
+    addInteractions(world);
 
-    //collision detection for merging bodies
-	Collisions(world);
+	addCollisions(world);
 
     world.render();
-    Physics.util.ticker.on(function (time, dt) {
+
+    Physics.util.ticker.on(function (time) {
         world.step(time);
     });
+
     Physics.util.ticker.start();
     world.on('step', function() {
         world.render();

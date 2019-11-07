@@ -18,6 +18,4 @@ export default class Settings {
         this.radius = radius;
         this.gravityWellOff();
     }
-
-
 }

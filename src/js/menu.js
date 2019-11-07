@@ -5,7 +5,6 @@ function bindToMultipleButtons(htmlCollection, fn) {
 }
 
 export default function bindMenuEvents(world) {
-
     let small = document.getElementById('smallButton');
     let medium = document.getElementById('mediumButton');
     let large = document.getElementById('largeButton');
@@ -22,9 +21,4 @@ export default function bindMenuEvents(world) {
     medium.addEventListener('click', () => { world.settings.changeRadius(4);  });
     large.addEventListener('click', () => { world.settings.changeRadius(6);  });
     huge.addEventListener('click', () => { world.settings.changeRadius(8); });
-
-
-
-
-
 }

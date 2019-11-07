@@ -1,16 +1,17 @@
-import Physics from "physicsjs";
-import { addCircle, calcImpulse, calcNewBody } from "./addBody";
+import { calcNewBody } from "./add_body";
 
-export default function Collisions(world) {
+export default function addCollisions(world) {
     world.on('collisions-body:detected', (data) => {
-		for(var i = 0; i < data.collisions.length; i++) {
+		for(let i = 0; i < data.collisions.length; i++) {
 	        let c = data.collisions[i];
-	        if ((c.overlap > c.bodyA.radius/4) || (c.overlap > c.bodyB.radius/4)){
+	        if ((c.overlap > c.bodyA.radius / 4) || (c.overlap > c.bodyB.radius / 4)){
 	            if(c.bodyA.mass >= c.bodyB.mass) {
-	                calcNewBody(world, c.bodyA, c.bodyB);
+	                calcNewBody(c.bodyA, c.bodyB);
+					world.remove(c.bodyB);
 	            } else {
-	                calcNewBody(world, c.bodyB, c.bodyA);
-	            };
+	                calcNewBody(c.bodyB, c.bodyA);
+					world.remove(c.bodyA);
+	            }
 	        }
 	    }
 	});

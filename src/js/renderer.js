@@ -9,16 +9,12 @@ export default class Renderer {
         this.renderer = Physics.renderer('canvas', {
             el: 'viewport',
             width: this.viewportWidth,
-            height: this.viewportHeight
+            height: this.viewportHeight,
+            // autoResize: false
         });
     }
 
     getRenderer() {
         return this.renderer;
-    }
-
-    getViewport() {
-        this.viewportWidth = document.getElementById('viewport').getBoundingClientRect().width;
-        this.viewportHeight = document.getElementById('viewport').getBoundingClientRect().height;
     }
 }
